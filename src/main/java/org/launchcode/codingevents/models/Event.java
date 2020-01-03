@@ -1,6 +1,9 @@
 package org.launchcode.codingevents.models;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -24,11 +27,24 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
-    public Event(String name, String description, String contactEmail) {
+    @NotBlank(message = "Location is required.")
+    private String location;
+
+    @NotBlank(message = "Number of attendees is required.")
+    @Min(1)
+    private int attendees;
+
+    @Value("true")
+    private boolean registration;
+
+    public Event(String name, String description, String contactEmail, String location, int attendees, boolean registration) {
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
         this.id = nextId;
+        this.location = location;
+        this.attendees = attendees;
+        this.registration = registration;
         nextId++;
     }
 
