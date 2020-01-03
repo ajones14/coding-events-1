@@ -9,10 +9,14 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Description</th>
+            <th>Contact Email</th>
         </tr>
     </thead>
     <tr th:each="event : ${events}">
         <td th:text="${event.name}"></td>
+        <td th:text="${event.description}"></td>
+        <td th:text="${event.contactEmail}"></td>
     </tr>
 </table>
 
