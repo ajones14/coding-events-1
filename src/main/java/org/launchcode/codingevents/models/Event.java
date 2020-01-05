@@ -2,10 +2,7 @@ package org.launchcode.codingevents.models;
 
 import org.springframework.beans.factory.annotation.Value;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Objects;
 
 /**
@@ -30,7 +27,6 @@ public class Event {
     @NotBlank(message = "Location is required.")
     private String location;
 
-    @NotBlank(message = "Number of attendees is required.")
     @Min(1)
     private int attendees;
 
@@ -76,6 +72,30 @@ public class Event {
 
     public int getId() {
         return id;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(int attendees) {
+        this.attendees = attendees;
+    }
+
+    public boolean isRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(boolean registration) {
+        this.registration = registration;
     }
 
     @Override
