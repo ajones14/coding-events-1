@@ -30,7 +30,7 @@ public class Event {
     @Min(1)
     private int attendees;
 
-    @Value("true")
+    @AssertTrue(message = "Must require registration.")
     private boolean registration;
 
     public Event(String name, String description, String contactEmail, String location, int attendees, boolean registration) {
