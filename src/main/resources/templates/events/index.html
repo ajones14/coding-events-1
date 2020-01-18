@@ -12,8 +12,12 @@
             <th>Name</th>
             <th>Description</th>
             <th>Contact Email</th>
+<<<<<<< HEAD
             <th>Location</th>
             <th># of Attendees</th>
+=======
+            <th>Type</th>
+>>>>>>> 4dbb1153bc14c6eb35b1af01c12de0ddd86d716f
         </tr>
     </thead>
     <tr th:each="event : ${events}">
@@ -21,8 +25,12 @@
         <td th:text="${event.name}"></td>
         <td th:text="${event.description}"></td>
         <td th:text="${event.contactEmail}"></td>
+<<<<<<< HEAD
         <td th:text="${event.location}"></td>
         <td th:text="${event.attendees}"></td>
+=======
+        <td th:text="${event.type.displayName}"></td>
+>>>>>>> 4dbb1153bc14c6eb35b1af01c12de0ddd86d716f
     </tr>
 </table>
 

@@ -24,6 +24,7 @@ public class Event {
     @Email(message = "Invalid email. Try again.")
     private String contactEmail;
 
+<<<<<<< HEAD
     @NotBlank(message = "Location is required.")
     private String location;
 
@@ -34,17 +35,25 @@ public class Event {
     private boolean registration;
 
     public Event(String name, String description, String contactEmail, String location, int attendees, boolean registration) {
+=======
+    private EventType type;
+
+    public Event(String name, String description, String contactEmail, EventType type) {
+        this();
+>>>>>>> 4dbb1153bc14c6eb35b1af01c12de0ddd86d716f
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
+        this.type = type;
+    }
+
+    public Event() {
         this.id = nextId;
         this.location = location;
         this.attendees = attendees;
         this.registration = registration;
         nextId++;
     }
-
-    public Event() {}
 
     public String getName() {
         return name;
@@ -68,6 +77,14 @@ public class Event {
 
     public void setContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public int getId() {
