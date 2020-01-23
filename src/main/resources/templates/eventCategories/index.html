@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header>
+    <h1 th:text="${title}">Coding Events</h1>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="/eventCategories">All Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventCategories/create">Create Event</a></li>
+    </ul>
+</header>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </thead>
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.id}"></td>
+        <td th:text="${category.name}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
