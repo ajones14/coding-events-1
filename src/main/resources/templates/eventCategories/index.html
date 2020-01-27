@@ -3,23 +3,16 @@
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<header>
-    <h1 th:text="${title}">Coding Events</h1>
-    <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="/eventCategories">All Events</a></li>
-        <li class="nav-item"><a class="nav-link" href="/eventCategories/create">Create Event</a></li>
-    </ul>
-</header>
+<header th:replace="fragments :: header"></header>
 
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Name</th>
+        <th>Category Name</th>
+    </tr>
     </thead>
     <tr th:each="category : ${categories}">
-        <td th:text="${category.id}"></td>
-        <td th:text="${category.name}"></td>
+        <td><a th:text="${category.name}" th:href="'/events?categoryId=' + ${category.id}"></a></td>
     </tr>
 </table>
 
