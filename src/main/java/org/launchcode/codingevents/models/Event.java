@@ -6,6 +6,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -27,6 +29,9 @@ public class Event extends AbstractEntity {
     @NotNull
     private EventDetails eventDetails;
 
+    @ManyToMany
+    private final List<Tag> tags = new ArrayList<>();
+
     public Event(String name, EventCategory eventCategory) {
         this.name = name;
         this.eventCategory = eventCategory;
@@ -34,7 +39,15 @@ public class Event extends AbstractEntity {
 
     public Event() { }
 
-    public String getName() {
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
+    }
+
+        public String getName() {
         return name;
     }
 
